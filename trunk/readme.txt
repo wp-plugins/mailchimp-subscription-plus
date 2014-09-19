@@ -34,7 +34,7 @@ The plugin doesn't use the official MailChimp API wrapper, but the super-simple 
 The quickest method for installing the MailChimp subscription form is:
 
 1. Automatically install using the builtin WordPress Plugin installer or...
-1. Upload the entire `fws-ajax-contact-form` folder to the `/wp-content/plugins/` directory.
+1. Upload the entire `mailchimp-subscription-plus` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Enter your MailChimp API key, the mailing list ID and the other options on the plugin settings page.
 1. Add the shortcode [FWSSubscriptionForm] into the page of your choice or enable the form for all blog posts.
