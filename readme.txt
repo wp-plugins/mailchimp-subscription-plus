@@ -55,8 +55,8 @@ If you use a Clicky premium plan it's possible to track Goals.
 1. Copy/paste the ID into the field from the plugin options page
 
 == Screenshots ==
-
-
+1. Settings for the *MailChimp Subscription Plus*.
+2. An example how the subscribe form looks like.
 
 == Changelog ==
 

@@ -38,7 +38,7 @@ function FWSMC_load_textdomain() {
 add_action('admin_menu', 'FWSMC_plugin_menu');
 
 function FWSMC_plugin_menu() {
-	add_options_page('MailChimp Subscribe Options', 'MailChimp Subscribe', 'manage_options', 'FWSMC-topmenu', 'FWSMC_options_page');
+	add_options_page('MailChimp Subscription Options', 'MC Subscription Plus', 'manage_options', 'FWSMC-topmenu', 'FWSMC_options_page');
 	add_action( 'admin_init', 'register_FWSMC_setting' );
 }
 
@@ -244,7 +244,7 @@ function FWSMC_subform_action_callback() {
 add_filter( 'the_content', 'FWSMC_add_to_content', 20 );
 
 function FWSMC_add_to_content($content) {
-	if (get_option('fwsmc-addToContent')) {
+	if (get_option('fwsmc-addToContent') && is_singular()) {
 		$content .= FWSMC_create_subform();
 	}
 	return $content;

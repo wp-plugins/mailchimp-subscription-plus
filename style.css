@@ -20,7 +20,7 @@ label {
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
     vertical-align: middle;
     width: 96%;
-    margin-bottom: 8px;
+    /*margin-bottom: 8px;*/
 }
 .form-inline .form-control {
     display: inline-block;
