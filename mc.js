@@ -4,8 +4,8 @@ function isValidEmailAddress(emailAddress) {
 }
 
 
-jQuery(document).ready(function($) {   
-	
+jQuery(document).ready(function($) {
+
 	$(".defaultText").focus(function(srcc) {
         if ($(this).val() == $(this)[0].title) {
             $(this).val("");
@@ -17,13 +17,13 @@ jQuery(document).ready(function($) {
         }
     });
     $(".defaultText").blur();
-	
+
 	$('#subbutton').click(function() {
 		$('#submsg').html('<img src="' + ajax_object.plugin_base_path + 'loading.gif" alt="' + ajax_object.js_alt_loading + '">');
 		$.ajax({
 			type: 'POST',
 			url: ajax_object.ajax_url,
-			data: $('#subscribeform').serialize(),
+			data: $('#subscribeform, #widget-subscribeform').serialize(),
 			dataType: 'json',
 			beforeSend: function() {
 				var name = $('#firstname').val();
@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
 			success: function(response) {
 				//alert(response);
 				if (response.status == 'success') {
-					$('#subscribeform')[0].reset();
+					$('#subscribeform, #widget-subscribeform')[0].reset();
 					if (ajax_object.googleanalytics) {
 						_gaq.push(['_trackPageview', ajax_object.googleanalytics]);
 					}
