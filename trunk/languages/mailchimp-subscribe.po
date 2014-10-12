@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailChimp Subscriptions Plus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 20:23+0100\n"
-"PO-Revision-Date: 2014-09-17 20:23+0100\n"
+"POT-Creation-Date: 2014-10-12 11:05+0100\n"
+"PO-Revision-Date: 2014-10-12 11:06+0100\n"
 "Last-Translator: Olaf Lederer <olaf@finalwebsites.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -12,58 +12,186 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk\n"
+"X-Poedit-SearchPath-0: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk\n"
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:54
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:56
 msgid "Loading..."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:55
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:57
 msgid "Please enter your name and email address."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:56
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:58
 msgid "The entered mail address is invalid."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:57
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:238
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:59
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:266
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:267
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:40
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:41
 msgid "Your first name"
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:177
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:87
+#, php-format
+msgid "You need a working MailChimp account, a valid API key and mailing list ID to use this plugin. Register a free <a href=\"%s\">Mailchimp account</a>, setup a mailing list and get an API key."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:88
+msgid "Enter below the required settings and click the button below to safe them."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:94
+msgid "Configuration"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:98
+msgid " MailChimp API Key "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:101
+msgid "Get one from your MailChimp account: Your Account &raquo; Extra's &raquo; API Keys"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:105
+msgid " MailChimp List ID "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:108
+msgid "Create a mailing list and enter the ID here: Lists  &raquo; Settings (at the bottom)"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:112
+msgid " Merge field \"First name\" "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:115
+msgid "Enter here the merge field for the first name: Lists  &raquo; Settings &raquo; List fields and *|MERGE|* tags"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:119
+msgid " Optional merge field (name)"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:122
+msgid "Use this optional merge field for a unique ID if you use the same list ID on different places."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:126
+msgid " Optional merge field (value)"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:129
+msgid "Add here the value for your additional merge field. You can overule this value if you use the form shortcode!"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:136
+msgid " Include CSS "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:140
+msgid "Include our stylesheet for your web form"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:145
+msgid " Include the form in all blogs "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:149
+msgid "Use this checkbox to add the subscription form at the end of each blog post."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:154
+msgid "Don't use the fields below if your Google Analytics or Clicky JavaScript snippet isn't installed!"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:157
+msgid " Track page views in Google Analytics "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:160
+msgid "Track a page view in Google analytics after the subscription form is submitted (f.e. /subscription/submitted.html)."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:164
+msgid " Track goals in Clicky "
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:167
+msgid "Add here the goal ID for a manual goal you've already defined in Clicky (check the FAQ for information)."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:173
+msgid "Save Changes"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:177
+msgid "How to use?"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:178
+msgid "You can use the subscription form in every post (see setting above) or you can use the widget into your sidebar. It's also possible to use a shortcode into your page or post."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:192
 msgid "Both fields are required to enter."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:180
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:195
 msgid "Verification error, try again."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:199
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:220
 msgid "Thanks, please check your emailbox and confirm your subscription."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:205
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:226
 msgid "You're already subscribed to this list."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:209
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:230
 msgid "An unknown error occurred."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:235
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:262
 msgid "Subscribe now!"
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:236
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:263
 msgid "Subscribe today and get future blog posts your email."
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:239
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:270
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:271
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:44
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:45
 msgid "Your email address"
 msgstr ""
 
-#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscribe/trunk/mailchimp-subscribe.php:244
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/mailchimp-subscription-plus.php:276
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:50
 msgid "Subscribe"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:16
+msgid "MailChimp Subscription Plus"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:18
+msgid "Use this widget to add a simple MailChimp subscription form to the different widget areas."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:81
+msgid "Title:"
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:84
+msgid "Optional: Add some promotional text (HTML allowed)."
+msgstr ""
+
+#: /home/olaf/Dropbox/MyPlugins/mailchimp-subscription-plus/trunk/include/widget.php:88
+msgid "Automatically add paragraphs"
 msgstr ""
 

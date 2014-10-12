@@ -6,27 +6,29 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: mailchimp, subscription, subscribe form, ajax forms, email marketing, mailing list, forms, api, ajax, email form, shortcode, clicky, Google Analytics, tracking
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.0
+Stable tag: 1.0.1
 
-Raise the count of new subscribers for your blog or website by using MailChimp and a professional subscribe form.
+Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 
 == Description ==
 
-Email marketing is still one of the best ways to drive traffic to your website. You can use this WordPress plugin to add a MailChimp subscription form right below your blog or right in your article. The Ajax technologie takes care about that visitor doesn't have to leave your website while the form gets submitted. The idea for this plugin was to create a new mailing list for my website. Using the RSS-driven campaign feature from MailChimp it's possible to send new blog posts to all subscribed people.
+Email marketing is still one of the best ways to drive traffic to your website. You can use this WordPress plugin to add a MailChimp subscription form below your blog, right in your articles or on other places using the widget. The Ajax technology takes care about that visitor doesn't have to leave your website while the form data gets submitted. The idea for this plugin was on the need to create a new mailing list for my website. Using the RSS-driven campaign feature from MailChimp it's possible to send my new blog posts to my website's subscribers.
 
 = Check the features: =
 
-* Add the subscription form to any page or post by using a shortcode or include the form to all your blog posts
+* Add the subscription form to any page or post by using a shortcode or just include for all blog posts
+* Add the form into your blog's sidebar using the widget
 * Using nonces for simple form value validation
-* The visitor stays on your website while submitting the subscribe form
-* You can change/translate all public text messages while using a localization tool
-* The form HTML is compatibel with the Boostrap CSS framework
-* Optional: use the CSS style-sheet included by the plugin
+* The visitor stays on your website while submitting the form data
+* You can change/translate all plugin text by using a localization tool
+* The form HTML is compatibel with the Boostrap CSS framework (v3)
+* Optional: use the CSS style-sheet included with the plugin
 * Track succesfully submitted forms in Google Analytics and Clicky
+* The plugin includes JS and CSS files only if the form is present 
 
-There are several other plugins with a similar function, but I think my approach is better to get more subscriptions. There will be a form widget and an unsubscribe page in one of the next versions. To use this plugin you need a working MailChimp account, a fully configured mailing list and an API key. [Click here](http://eepurl.com/r54KL) to open a free MailChimp account (good for 2000 subscribers and 12000 emails/month).
+There are several other plugins with a similar function, but I think my approach is better to get more subscriptions. To use this plugin you need a working MailChimp account, a fully configured mailing list and a MailChimp API key. [Click here](http://eepurl.com/r54KL) to open a free MailChimp account (good for 2000 subscribers and 12000 emails/month).
 
-The plugin doesn't use the official MailChimp API wrapper, but the super-simple [MailChimp API v2 wrapper](https://github.com/drewm/mailchimp-api/) provided by [Drew McLellan](http://allinthehead.com/).
+The plugin doesn't use the official MailChimp API wrapper and instead the super-simple [MailChimp API v2 wrapper](https://github.com/drewm/mailchimp-api/) provided by [Drew McLellan](http://allinthehead.com/).
 
 
 == Installation ==
@@ -43,22 +45,35 @@ The quickest method for installing the MailChimp subscription form is:
 
 = The subscription form doesn't work, the first name isn't passed to the MailChimp list =
 
-Compare the merge fields you're using for the plugin settings and for your MailChimp mailing list. They need to be identical, check the [MC manual](http://kb.mailchimp.com/lists/managing-subscribers/manage-list-and-signup-form-fields) for information how to add additional merge fields
+Compare the merge fields you're using for the plugin settings and for your MailChimp mailing list. They need to be identical and use only the characters between the pipe symbols (|), check the [MC manual](http://kb.mailchimp.com/lists/managing-subscribers/manage-list-and-signup-form-fields) for information how to add additional merge fields
 
 = How to add a manual goal in Clicky? =
 
 If you use a Clicky premium plan it's possible to track Goals.
 
-1. In Clicky click on Goals > Setup > Create a new goal.
+1. In Clicky, visit: Goals > Setup > Create a new goal.
 1. Enter a name for the goal
 1. Check the "Manual Goal" checkbox and click Submit
-1. Copy/paste the ID into the field from the plugin options page
+1. Copy/paste the ID into the corresponding field on the plugin options page
 
 == Screenshots ==
-1. Settings for the *MailChimp Subscription Plus*.
-2. An example how the subscribe form looks like.
+1. Settings for the *MailChimp Subscription Plus* plugin.
+2. An example how the subscription form looks like.
+3. Subscription form widget (Made together with the theme called "The Bootstrap")
 
 == Changelog ==
+
+
+= 1.0.1 =
+
+* Other
+	* Fixed some typo's and changed some information
+	* Moved some PHP files into the new "includes" directory
+	* Added a new screenshot for the widget
+
+* Enhancement
+	* Added the subscription form widget
+	* It's possible now to translate the complete plugin
 
 = 1.0 =
 * Initial release
