@@ -38,21 +38,21 @@ class MC_subscription_Widget extends WP_Widget {
 		if ($description != '') echo '
 		<div class="fws-widget-description">'.$description.'</div>';
 		echo '
-		<form id="widget-subscribeform" role="form">
+		<form id="fws-widget-form" role="form">
 			<div class="form-group">
 				<label class="sr-only" for="firstname">'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'</label>
-				<input type="text" class="form-control defaultText" title="'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'" id="firstname" name="name" tabindex="1" />
+				<input type="text" class="form-control defaultText" title="'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'" name="name" tabindex="1" />
 			</div>
 			<div class="form-group">
 				<label class="sr-only" for="emailaddress">'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'</label>
-				<input type="email" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" id="emailaddress" name="email" tabindex="2" />
+				<input type="email" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" name="email" tabindex="2" />
 			</div>
 			'.wp_nonce_field('fwsmc_subform', '_fwsmc_subnonce', true, false).'
 			<input type="hidden" name="action" value="subscribeform_action" />
 			<input type="hidden" name="extramergefield" value="'.esc_attr(get_option('fwsmc-extraMergeFieldValue')).'" />
-			<button class="btn btn-primary btn-sm" id="subbutton" tabindex="3" type="button">'.__( 'Subscribe', 'fws-mailchimp-subscribe' ).'</button>
+			<button class="btn btn-primary btn-sm send-subscr-fws" tabindex="3" type="button">'.__( 'Subscribe', 'fws-mailchimp-subscribe' ).'</button>
 		</form>
-		<div id="submsg" class="error-message"></div>';
+		<div id="fws-widget-msg" class="error-message"></div>';
 
 		/* After widget (defined by themes). */
 		echo $args['after_widget'];
