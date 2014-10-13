@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: mailchimp, subscription, subscribe form, ajax forms, email marketing, mailing list, forms, api, ajax, email form, shortcode, clicky, Google Analytics, tracking
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.0.1
+Stable tag: 1.0.1.1
 
 Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 
@@ -63,6 +63,11 @@ If you use a Clicky premium plan it's possible to track Goals.
 
 == Changelog ==
 
+= 1.0.1.1 =
+
+* Bugfixes
+	* Changed the way how the JavaScript code works. In the old version it wasn't possible to have more than one subscription form on the same page (f.e. below the content and using the widget). 
+	* The object name used for wp_localize_script is changed because of possible conflicts with other plugins or themes.
 
 = 1.0.1 =
 

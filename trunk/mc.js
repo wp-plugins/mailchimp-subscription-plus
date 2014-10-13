@@ -18,38 +18,41 @@ jQuery(document).ready(function($) {
     });
     $(".defaultText").blur();
 
-	$('#subbutton').click(function() {
-		$('#submsg').html('<img src="' + ajax_object.plugin_base_path + 'loading.gif" alt="' + ajax_object.js_alt_loading + '">');
+	$('.send-subscr-fws').click(function() {
+		var subform = $(this).closest('form');
+		var formID = subform.attr('id');
+		var msgID = $('#' + formID + ' + div.error-message').attr('id');
+		$('#' + msgID).html('<img src="' + msp_ajax_object.plugin_base_path + 'loading.gif" alt="' + msp_ajax_object.js_alt_loading + '">');
 		$.ajax({
 			type: 'POST',
-			url: ajax_object.ajax_url,
-			data: $('#subscribeform, #widget-subscribeform').serialize(),
+			url: msp_ajax_object.ajax_url,
+			data: subform.serialize(),
 			dataType: 'json',
 			beforeSend: function() {
-				var name = $('#firstname').val();
-				var email = $('#emailaddress').val();
-				if (!name || name == ajax_object.js_default_firstname || !email) {
-					$('#submsg').html(ajax_object.js_msg_enter_email_name);
+				var name = $('#' + formID + ' input[name="name"]').val();
+				var email = $('#' + formID + ' input[name="email"]').val();
+				if (!name || name == msp_ajax_object.js_default_firstname || !email) {
+					$('#' + msgID).html(msp_ajax_object.js_msg_enter_email_name);
 					return false;
 				}
 				if (!isValidEmailAddress(email)) {
-					$('#submsg').html(ajax_object.js_msg_invalid_email);
+					$('#' + msgID).html(msp_ajax_object.js_msg_invalid_email);
 					return false;
 				}
 			},
 			success: function(response) {
 				//alert(response);
 				if (response.status == 'success') {
-					$('#subscribeform, #widget-subscribeform')[0].reset();
-					if (ajax_object.googleanalytics) {
-						_gaq.push(['_trackPageview', ajax_object.googleanalytics]);
+					subform[0].reset();
+					if (msp_ajax_object.googleanalytics) {
+						_gaq.push(['_trackPageview', msp_ajax_object.googleanalytics]);
 					}
-					if (ajax_object.clickyanalytics) {
-						clicky.goal( ajax_object.clickyanalytics );
+					if (msp_ajax_object.clickyanalytics) {
+						clicky.goal( msp_ajax_object.clickyanalytics );
 						clicky.pause( 500 );
 					}
 				}
-				$('#submsg').html(response.errmessage);
+				$('#' + msgID).html(response.errmessage);
 			}
 		});
 	});

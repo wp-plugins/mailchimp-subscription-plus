@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MailChimp Subscription Plus
-Version: 1.01
+Version: 1.0.1.1
 Plugin URI: http://www.finalwebsites.com/
 Description: Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 Author: Olaf Lederer
@@ -49,7 +49,7 @@ function FWSMC_add_script() {
 	global $post;
 	if((is_single() && get_option('fwsmc-addToContent')) || ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'FWSSubscriptionForm') ) || is_active_widget( false, false, 'mc-subscription-widget', true )) {
 		wp_enqueue_script('fws-mailchimp', plugin_dir_url(__FILE__).'mc.js', array('jquery') );
-		wp_localize_script( 'fws-mailchimp', 'ajax_object',
+		wp_localize_script( 'fws-mailchimp', 'msp_ajax_object',
 			array(
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 				'plugin_base_path' => plugin_dir_url(__FILE__),
@@ -252,7 +252,8 @@ function FWSMC_add_to_content($content) {
 }
 
 function FWSMC_create_subform($atts = null) {
-	shortcode_atts(
+	
+	$atts = shortcode_atts(
 		array(
 			'extramergefield' => get_option('fwsmc-extraMergeFieldValue')
 		),
@@ -261,21 +262,21 @@ function FWSMC_create_subform($atts = null) {
 
 	return '<h3>'.__( 'Subscribe now!', 'fws-mailchimp-subscribe' ).'</h3>
 		<p>'.__( 'Subscribe today and get future blog posts your email.', 'fws-mailchimp-subscribe' ).'</p>
-		<form id="subscribeform" role="form" class="form-inline">
+		<form id="fws-subscribeform" role="form" class="form-inline">
 			<div class="form-group">
 				<label class="sr-only" for="firstname">'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'</label>
-				<input type="text" class="form-control defaultText" title="'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'" id="firstname" name="name" tabindex="1" />
+				<input type="text" class="form-control defaultText" title="'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'" name="name" tabindex="1" />
 			</div>
 			<div class="form-group">
 				<label class="sr-only" for="emailaddress">'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'</label>
-				<input type="email" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" id="emailaddress" name="email" tabindex="2" />
+				<input type="email" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" name="email" tabindex="2" />
 			</div>
 			'.wp_nonce_field('fwsmc_subform', '_fwsmc_subnonce', true, false).'
 			<input type="hidden" name="action" value="subscribeform_action" />
 			<input type="hidden" name="extramergefield" value="'.esc_attr($atts['extramergefield']).'" />
-			<button class="btn btn-primary btn-sm" id="subbutton" tabindex="3" type="button">'.__( 'Subscribe', 'fws-mailchimp-subscribe' ).'</button>
+			<button class="btn btn-primary btn-sm send-subscr-fws" tabindex="3" type="button">'.__( 'Subscribe', 'fws-mailchimp-subscribe' ).'</button>
 		</form>
-		<div id="submsg" class="error-message"></div>
+		<div id="fws-subscribeform-msg" class="error-message"></div>
 	';
 }
 add_shortcode('FWSSubscriptionForm', 'FWSMC_create_subform');
