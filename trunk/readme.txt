@@ -5,14 +5,14 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: mailchimp, subscription, subscribe form, ajax forms, email marketing, mailing list, forms, api, ajax, email form, shortcode, clicky, Google Analytics, tracking
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.0.1.1
 
 Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 
 == Description ==
 
-Email marketing is still one of the best ways to drive traffic to your website. You can use this WordPress plugin to add a MailChimp subscription form below your blog, right in your articles or on other places using the widget. The Ajax technology takes care about that visitor doesn't have to leave your website while the form data gets submitted. The idea for this plugin was on the need to create a new mailing list for my website. Using the RSS-driven campaign feature from MailChimp it's possible to send my new blog posts to my website's subscribers.
+Email marketing is still one of the best ways to drive traffic to your website. You can use this WordPress plugin to add a MailChimp subscription form below your blog, right in your articles or on other places using the widget. The Ajax technology takes care about that visitor doesn't have to leave your website while the form data gets submitted. The idea for this plugin came up because I created a new mailing list for my website. By using the RSS-driven campaign feature from MailChimp, it's possible to send new blog posts to my website's subscribers. **This plugin requires a web host with PHP5.3 or higher**, please check your server configuration first.
 
 = Check the features: =
 
@@ -21,10 +21,10 @@ Email marketing is still one of the best ways to drive traffic to your website. 
 * Using nonces for simple form value validation
 * The visitor stays on your website while submitting the form data
 * You can change/translate all plugin text by using a localization tool
-* The form HTML is compatibel with the Boostrap CSS framework (v3)
+* The form HTML is compatible with the Bootstrap CSS framework (v3)
 * Optional: use the CSS style-sheet included with the plugin
 * Track succesfully submitted forms in Google Analytics and Clicky
-* The plugin includes JS and CSS files only if the form is present 
+* The plugin includes JS and CSS files only if the form is present
 
 There are several other plugins with a similar function, but I think my approach is better to get more subscriptions. To use this plugin you need a working MailChimp account, a fully configured mailing list and a MailChimp API key. [Click here](http://eepurl.com/r54KL) to open a free MailChimp account (good for 2000 subscribers and 12000 emails/month).
 
@@ -35,7 +35,7 @@ The plugin doesn't use the official MailChimp API wrapper and instead the super-
 
 The quickest method for installing the MailChimp subscription form is:
 
-1. Automatically install using the builtin WordPress Plugin installer or...
+1. Automatically install using the built-in WordPress Plugin installer or...
 1. Upload the entire `mailchimp-subscription-plus` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Enter your MailChimp API key, the mailing list ID and the other options on the plugin settings page.
@@ -66,7 +66,7 @@ If you use a Clicky premium plan it's possible to track Goals.
 = 1.0.1.1 =
 
 * Bugfixes
-	* Changed the way how the JavaScript code works. In the old version it wasn't possible to have more than one subscription form on the same page (f.e. below the content and using the widget). 
+	* Changed the way how the JavaScript code works. In the old version it wasn't possible to have more than one subscription form on the same page (f.e. below the content and using the widget).
 	* The object name used for wp_localize_script is changed because of possible conflicts with other plugins or themes.
 
 = 1.0.1 =
