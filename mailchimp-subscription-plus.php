@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MailChimp Subscription Plus
-Version: 1.0.1.1
+Version: 1.0.2
 Plugin URI: http://www.finalwebsites.com/
 Description: Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 Author: Olaf Lederer
@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPL v3
 
 MailChimp Subscription Plus
-Copyright (C) 2014, Olaf Lederer - http://www.finalwebsites.com/contact/
+Copyright (C) 2015, Olaf Lederer - http://www.finalwebsites.com/contact/
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -47,8 +47,8 @@ add_action('wp_enqueue_scripts', 'FWSMC_add_script');
 
 function FWSMC_add_script() {
 	global $post;
-	if((is_single() && get_option('fwsmc-addToContent')) || ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'FWSSubscriptionForm') ) || is_active_widget( false, false, 'mc-subscription-widget', true )) {
-		wp_enqueue_script('fws-mailchimp', plugin_dir_url(__FILE__).'mc.js', array('jquery') );
+	if((is_single() && get_option('fwsmc-addToContent')) || ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'FWSSubscriptionForm') ) || is_active_widget( false, false, 'mc-subscription-widget', true ) || get_option('fwsmc-showOnAllpage') ) {
+		wp_enqueue_script('fws-mailchimp', plugin_dir_url(__FILE__).'mc.js', array('jquery'), '', true );
 		wp_localize_script( 'fws-mailchimp', 'msp_ajax_object',
 			array(
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -75,6 +75,7 @@ function register_FWSMC_setting() {
 	register_setting( 'FWSMC_options', 'fwsmc-apiKey' );
 	register_setting( 'FWSMC_options', 'fwsmc-include-css' );
 	register_setting( 'FWSMC_options', 'fwsmc-addToContent' );
+	register_setting( 'FWSMC_options', 'fwsmc-showOnAllpage' );
 	register_setting( 'FWSMC_options', 'fwsmc-googleanalytics' );
 	register_setting( 'FWSMC_options', 'fwsmc-clickyanalytics' );
 }
@@ -131,6 +132,7 @@ function FWSMC_options_page() {
 				</tr>';
 				$checkCss = (get_option('fwsmc-include-css')) ? ' checked="checked"' : '';
 				$checkContent = (get_option('fwsmc-addToContent')) ? ' checked="checked"' : '';
+				$checkallpages = (get_option('fwsmc-showOnAllpage')) ? ' checked="checked"' : '';
 				echo '
 				<tr valign="top">
 					<th scope="row">'.__( ' Include CSS ', 'fws-mailchimp-subscribe' ).'</th>
@@ -142,11 +144,20 @@ function FWSMC_options_page() {
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row">'.__( ' Include the form in all blogs ', 'fws-mailchimp-subscribe' ).'</th>
+					<th scope="row">'.__( ' Include the form for all blog posts ', 'fws-mailchimp-subscribe' ).'</th>
 					<td>
 						<label for="fwsmc-addToContent">
 						<input id="fwsmc-addToContent" type="checkbox" value="1" name="fwsmc-addToContent"'.$checkContent.'>
 						'.__( 'Use this checkbox to add the subscription form at the end of each blog post.', 'fws-mailchimp-subscribe' ).'
+						</label>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">'.__( ' Advanced: Include site wide! ', 'fws-mailchimp-subscribe' ).'</th>
+					<td>
+						<label for="fwsmc-showOnAllpage">
+						<input id="fwsmc-showOnAllpage" type="checkbox" value="1" name="fwsmc-showOnAllpage"'.$checkallpages.'>
+						'.__( 'Use this option if you like to use the form on all pages by using the shortcode in a theme file or with a 3rd party popup.', 'fws-mailchimp-subscribe' ).'
 						</label>
 					</td>
 				</tr>
@@ -175,8 +186,9 @@ function FWSMC_options_page() {
 		</form>';
 		if (get_option('fwsmc-apiKey')) echo '
 		<h3>'.__( 'How to use?', 'fws-mailchimp-subscribe' ).'</h3>
-		<p>'.__( 'You can use the subscription form in every post (see setting above) or you can use the widget into your sidebar. It\'s also possible to use a shortcode into your page or post.', 'fws-mailchimp-subscribe' ).'</p>
-		<p><code>[FWSSubscriptionForm]</code> &nbsp; <code>[FWSSubscriptionForm extramergefield="via blog post"]</code></p>
+		<p>'.__( 'You can use the subscription form in every post (see setting above) or you can use the widget into your sidebar. It\'s also possible to add a shortcode to your pages and posts.', 'fws-mailchimp-subscribe' ).'</p>
+		<p><code>[FWSSubscriptionForm]</code></p>
+		<p><code>[FWSSubscriptionForm extramergefield="via blog post" title="Subscribe today" description="Subscribe now and get future updates in your mailbox."]</code></p>
 	</div>';
 }
 
@@ -255,13 +267,15 @@ function FWSMC_create_subform($atts = null) {
 	
 	$atts = shortcode_atts(
 		array(
-			'extramergefield' => get_option('fwsmc-extraMergeFieldValue')
+			'extramergefield' => get_option('fwsmc-extraMergeFieldValue'),
+			'title' => __( 'Subscribe now!', 'fws-mailchimp-subscribe' ),
+			'description' => __( 'Subscribe today and get future blog posts your email.', 'fws-mailchimp-subscribe' )
 		),
 		$atts
 	);
 
-	return '<h3>'.__( 'Subscribe now!', 'fws-mailchimp-subscribe' ).'</h3>
-		<p>'.__( 'Subscribe today and get future blog posts your email.', 'fws-mailchimp-subscribe' ).'</p>
+	return '<h3>'.$atts['title'].'</h3>
+		<p>'.$atts['description'].'</p>
 		<form id="fws-subscribeform" role="form" class="form-inline">
 			<div class="form-group">
 				<label class="sr-only" for="firstname">'.__( 'Your first name', 'fws-mailchimp-subscribe' ).'</label>
@@ -276,7 +290,7 @@ function FWSMC_create_subform($atts = null) {
 			<input type="hidden" name="extramergefield" value="'.esc_attr($atts['extramergefield']).'" />
 			<button class="btn btn-primary btn-sm send-subscr-fws" tabindex="3" type="button">'.__( 'Subscribe', 'fws-mailchimp-subscribe' ).'</button>
 		</form>
-		<div id="fws-subscribeform-msg" class="error-message"></div>
+		<p id="fws-subscribeform-msg" class="error-message">&nbsp;</p>
 	';
 }
 add_shortcode('FWSSubscriptionForm', 'FWSMC_create_subform');

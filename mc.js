@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 	$('.send-subscr-fws').click(function() {
 		var subform = $(this).closest('form');
 		var formID = subform.attr('id');
-		var msgID = $('#' + formID + ' + div.error-message').attr('id');
+		var msgID = $('#' + formID + ' + .error-message').attr('id');
 		$('#' + msgID).html('<img src="' + msp_ajax_object.plugin_base_path + 'loading.gif" alt="' + msp_ajax_object.js_alt_loading + '">');
 		$.ajax({
 			type: 'POST',
