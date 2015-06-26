@@ -283,7 +283,7 @@ function FWSMC_create_subform($atts = null) {
 			</div>
 			<div class="form-group">
 				<label class="sr-only" for="emailaddress">'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'</label>
-				<input type="email" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" name="email" tabindex="2" />
+				<input type="text" class="form-control defaultText" title="'.__( 'Your email address', 'fws-mailchimp-subscribe' ).'" name="email" tabindex="2" />
 			</div>
 			'.wp_nonce_field('fwsmc_subform', '_fwsmc_subnonce', true, false).'
 			<input type="hidden" name="action" value="subscribeform_action" />

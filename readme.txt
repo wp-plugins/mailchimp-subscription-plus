@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: mailchimp, subscription, subscribe form, ajax forms, email marketing, mailing list, forms, api, ajax, email form, shortcode, clicky, Google Analytics, tracking
 Requires at least: 3.0
-Tested up to: 4.2
-Stable tag: 1.0.2
+Tested up to: 4.2.2
+Stable tag: 1.0.2.1
 
 Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 
@@ -62,6 +62,12 @@ If you use a Clicky premium plan it's possible to track Goals.
 3. Subscription form widget (Made together with the theme called "The Bootstrap")
 
 == Changelog ==
+
+= 1.0.2.1 =
+
+* Bugfixes
+	* jQuery shows a warning (in the console only) because of the form field "email" type and the "invalid" title atttribute used as default or info. This is fixed by using the "text" type instead.
+	* Fixed also the (Dutch) language files...
 
 = 1.0.2 =
 
