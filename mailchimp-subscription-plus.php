@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MailChimp Subscription Plus
-Version: 1.0.2
+Version: 1.0.2.1
 Plugin URI: http://www.finalwebsites.com/
 Description: Increase the count of new subscribers for your blog or website by using MailChimp and some professional subscription form.
 Author: Olaf Lederer
