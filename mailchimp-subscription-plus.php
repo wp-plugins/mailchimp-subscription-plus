@@ -210,7 +210,7 @@ function FWSMC_subform_action_callback() {
 			$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 			$extranamevalue = filter_var($_POST['extramergefield'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 			$ak = get_option('fwsmc-apiKey');
-			$mc = new \Drewm\MailChimp($ak);
+			$mc = new MailChimp($ak);
 			$fnamevar = get_option('fwsmc-firstNameMergField');
 			$mvars = array('optin_ip'=>$_SERVER['REMOTE_ADDR'], $fnamevar => $name);
 			if ($extranamevar = get_option('fwsmc-extraMergeField')) {
@@ -264,7 +264,7 @@ function FWSMC_add_to_content($content) {
 }
 
 function FWSMC_create_subform($atts = null) {
-	
+
 	$atts = shortcode_atts(
 		array(
 			'extramergefield' => get_option('fwsmc-extraMergeFieldValue'),
